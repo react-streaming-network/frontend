@@ -4,7 +4,7 @@ export const secondary = "#4AC532";
 
 export const darkSecondary = "#378E26";
 
-export const bg = "#272727";
+export const bg = "rgba(0,0,0,0.9)";
 
 export const spacing = 15;
 
