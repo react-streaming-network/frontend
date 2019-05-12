@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+import { fetchChannels } from './ChannelActions.js';
+
 const URL = process.env.REACT_APP_BACKEND_URL;
 
 // ------------------------ REGISTER USER ------------------------
@@ -28,5 +30,6 @@ export const loginUser = (user, handleModal) => dispatch => {
             dispatch({ type: LOGIN_USER_SUCCESS, payload: res.data })
             handleModal();
         })
+        .then(() => fetchChannels())
         .catch(err => dispatch({ type: LOGIN_USER_FAILURE, payload: err }))
 }

@@ -10,5 +10,10 @@ export const MainContainer = styled.div`
 
 export const ChatSection = styled.div`
     width: 20%;
+    height: 100%;
     background-color: ${primary};
+    iframe{
+        width: 100%;
+        height: 100%;
+    }
 `;

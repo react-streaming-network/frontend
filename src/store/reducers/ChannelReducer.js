@@ -63,7 +63,7 @@ const ChannelReducer = (state = initialState, action) => {
                 loading: true
             }
         case REMOVE_CHANNEL_SUCCESS:
-            toast.success(action.payload.message);
+            toast.success("Channel was removed from the database");
             return{
                 ...state,
                 loading: false

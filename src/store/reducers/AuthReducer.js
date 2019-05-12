@@ -39,6 +39,7 @@ export const authReducer = (state = initialState, action) => {
             }
         case LOGIN_USER_SUCCESS:
             localStorage.setItem('token', action.payload.token)
+            localStorage.setItem('role', action.payload.role)
             toast.success(action.payload.message);
             return{
                 ...state,

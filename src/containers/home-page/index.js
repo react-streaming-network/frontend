@@ -60,17 +60,19 @@ class Home extends React.Component{
           <div className="container">
           {liveChannels.map(c => {
             return (
-              <LiveCard
-                name={c.channelName}
-                title={c.status.title}
-                viewers={c.status.liveStatus.concurrentViewers}
-                pictureUrl={c.channelThumbnails.high.url}
-                channelUrl={`https://youtube.com/channel/${c.youtube}`}
-                videoId={c.status.videoId}
-                channelName={c.channelName}
-                watchChannel={watchChannel}
-                history={history}
-              />
+              <>
+                <LiveCard
+                  name={c.channelName}
+                  title={c.status.title}
+                  viewers={c.status.liveStatus.concurrentViewers}
+                  pictureUrl={c.channelThumbnails.high.url}
+                  channelUrl={`https://youtube.com/channel/${c.youtube}`}
+                  videoId={c.status.videoId}
+                  channelName={c.channelName}
+                  watchChannel={watchChannel}
+                  history={history}
+                />
+              </>
             )
           })}    
           </div>
