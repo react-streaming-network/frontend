@@ -6,6 +6,7 @@ export const MainContainer = styled.div`
     display: flex;
     width: 100%;
     height: 100vh;
+    overflow-y: hidden;
 `;
 
 export const ChatSection = styled.div`

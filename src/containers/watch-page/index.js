@@ -23,10 +23,11 @@ export class WatchPage extends React.Component{
                 <ChatSection>
                     {liveChannels.length > 0 &&
                         <iframe 
-                            title="test"
-                            allowfullscreen="" 
+                            title={liveChannels[0].channelName}
+                            referrerPolicy="origin" 
+                            src={`https://gaming.youtube.com/live_chat?v=${liveChannels[0].status.videoId}&embed_domain=${process.env.REACT_APP_FRONTEND_DOMAIN}`}
                             frameborder="0"  
-                            src={`https://www.youtube.com/live_chat?v=${liveChannels[0].status.videoId}&embed_domain=${process.env.REACT_APP_FRONTEND_DOMAIN}`}
+                            id="chat-embed"
                         />
                     }
                 </ChatSection>
