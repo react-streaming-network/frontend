@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { toast } from 'react-toastify';
 
 import { fetchChannels } from '../../../store/actions/ChannelActions.js';
 import { 
@@ -37,6 +38,7 @@ export const NavMenu = ({ handleToggle, open, fetchChannels}) => (
                 <NavItem onClick={() => {
                     handleToggle('navMenuIsOpen');
                     localStorage.clear();
+                    toast.success('Logged Out')
                     fetchChannels();
                 }}>
                     <i className="fas fa-sign-out-alt"/>
