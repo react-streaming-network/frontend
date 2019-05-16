@@ -17,15 +17,7 @@ import NavBar from '../../components/navigation';
 
 class Home extends React.Component{
   render(){
-    const messages = [
-        {
-          username: "Ice Poseidon",
-          message: "REAL LIFE JAPAN SIMULATOR | ICE POSEIDON", 
-          profileUrl: "https://google.com",
-          pictureUrl: "https://lh3.googleusercontent.com/-c8EtIGaP5CQ/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rf5q2aHaXWrDSef-kwZ4ZpliCdnWA/s48-c-mo/photo.jpg"
-        }
-      ]
-  
+
     const { liveChannels, channels, watchChannel, history } = this.props;
 
     return (
@@ -48,7 +40,7 @@ class Home extends React.Component{
                   history={history}
                 />
                 <LiveChat
-                  messages={messages}
+                  chatId={liveChannels[0].status.liveStatus.activeLiveChatId}
                 />
               </div>
             </FeaturedSection>
