@@ -12,7 +12,6 @@ export class WatchPage extends React.Component{
 
     render(){
         const { history, liveChannels, activeChannels } = this.props;
-
         return(
             <MainContainer>
                 <VideoSection 
@@ -22,10 +21,15 @@ export class WatchPage extends React.Component{
                     activeChannels={activeChannels}
                 />
                 <ChatSection>
-                    <iframe 
-                        title="test"
-                        src=''
-                    />
+                    {liveChannels.length > 0 &&
+                        <iframe 
+                            title={liveChannels[0].channelName}
+                            referrerPolicy="origin" 
+                            src={`https://gaming.youtube.com/live_chat?v=${liveChannels[0].status.videoId}&embed_domain=${process.env.REACT_APP_FRONTEND_DOMAIN}`}
+                            frameborder="0"  
+                            id="chat-embed"
+                        />
+                    }
                 </ChatSection>
             </MainContainer>
         )

@@ -1,5 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { toast } from 'react-toastify';
 
+import { fetchChannels } from '../../../store/actions/ChannelActions.js';
 import { UserDropdownContainer, Dropdown } from './userDropdownStyles.js';
 
 export class UserDropdown extends React.Component{
@@ -20,6 +23,8 @@ export class UserDropdown extends React.Component{
                     </button>
                     <button onClick={() => {
                         localStorage.clear();
+                        this.props.fetchChannels();
+                        toast.success("Logged Out")
                     }}>
                         <i className="fas fa-sign-out-alt"/>
                         Logout
@@ -30,4 +35,9 @@ export class UserDropdown extends React.Component{
     }
 } 
 
-export default UserDropdown;
+export default connect(
+    null,
+    {
+        fetchChannels
+    }
+)(UserDropdown);

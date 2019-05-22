@@ -21,6 +21,7 @@ export const ChatContainer = styled.div`
 export const Chat = styled.div`
     height: 100%;
     overflow-y: hidden;
+    overflow-x: hidden;
 `;
 
 export const MessageContainer = styled.div`

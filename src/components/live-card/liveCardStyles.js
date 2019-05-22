@@ -4,7 +4,7 @@ import { paper, transparentPrimary, secondary } from '../main-stylesheet';
 export const CardContainer = styled.div`
     display: flex;
     height: 250px;
-    width: 425px;
+    width: 435px;
     margin: 13px;
     color: #ffffff;
     font-size: 0.9rem;
@@ -19,7 +19,7 @@ export const Overlay = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 400px;
+    width: 408px;
     height: 225px;
     padding: 13px;
 `;
