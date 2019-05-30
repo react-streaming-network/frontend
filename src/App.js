@@ -23,8 +23,6 @@ class App extends React.Component {
   requestNotificationPermissions(){
     if (Notification.permission === "granted"){
       console.log('Notifications enabled')
-      const reg = navigator
-      console.log(reg)
     }else if (Notification.permission !== 'denied'){
       Notification.requestPermission(permission => {
         if(permission === "granted"){
