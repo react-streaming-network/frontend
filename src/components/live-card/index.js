@@ -1,7 +1,12 @@
 import React from 'react';
 import NumberFormat from 'react-number-format';
 
-import { CardContainer, TopSection, BottomSection, Overlay } from './liveCardStyles.js';
+import { 
+  CardContainer, 
+  TopSection, 
+  BottomSection, 
+  Overlay
+} from './liveCardStyles.js';
 
 const LiveCard = ({
   name,
