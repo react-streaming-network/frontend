@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
  
-import { removeChannel } from '../../store/actions/ChannelActions.js';
+import { removeChannel, startEditing } from '../../store/actions/ChannelActions.js';
 import { 
     ChannelCardContainer, 
     SocialIconContainer,
@@ -15,7 +15,7 @@ const SocialIcon = ({ icon, link }) => (
     </SocialIconContainer>
 )
 
-const ChannelCard = ({ name, pictureUrl, live, socials, id, removeChannel }) => (
+const ChannelCard = ({ channel, name, pictureUrl, live, socials, id, removeChannel, startEditing }) => (
     <MainContainer>
         <ChannelCardContainer live={live}>
             <img src={pictureUrl} alt=""/>
@@ -41,7 +41,9 @@ const ChannelCard = ({ name, pictureUrl, live, socials, id, removeChannel }) => 
             }}>
                 Delete Channel
             </button>
-            <button>
+            <button onClick={() => {
+                startEditing(channel)
+            }}>
                 Edit Channel
             </button>
         </AdminButtons>
@@ -52,6 +54,7 @@ const ChannelCard = ({ name, pictureUrl, live, socials, id, removeChannel }) => 
 export default connect(
     null,
     {
-        removeChannel
+        removeChannel,
+        startEditing
     }
 )(ChannelCard);

@@ -1,5 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
+import { stopEditing } from '../../store/actions/ChannelActions.js';
 import {
     NavBarContainer,
     LeftSection,
@@ -10,6 +12,7 @@ import NavMenu from './nav-menu';
 import LoginForm from './login-form';
 import RegisterForm from './register-form';
 import AddChannelForm from './add-channel-form';
+import EditChannelForm from './edit-channel-form';
 import UserDropdown from './user-dropdown';
 
 class NavBar extends React.Component{
@@ -34,6 +37,8 @@ class NavBar extends React.Component{
             navMenuIsOpen,
             addChannelModalIsOpen
         } = this.state;
+
+        const { isEditing, stopEditing } = this.props;
 
         return(
             <>
@@ -79,12 +84,23 @@ class NavBar extends React.Component{
 
                 {addChannelModalIsOpen &&
                     <Modal
-                    header="ADD CHANNEL"
-                    handleClose={() => this.toggleStateBoolean('addChannelModalIsOpen')}
-                    Component={AddChannelForm}
-                    props={{
-                        handleClose: this.toggleStateBoolean
-                    }}
+                        header="ADD CHANNEL"
+                        handleClose={() => this.toggleStateBoolean('addChannelModalIsOpen')}
+                        Component={AddChannelForm}
+                        props={{
+                            handleClose: this.toggleStateBoolean
+                        }}
+                    />
+                }
+
+                {isEditing &&
+                    <Modal 
+                        header="EDIT CHANNEL"
+                        Component={EditChannelForm}
+                        handleClose={stopEditing}
+                        props={{
+                            handleClose: stopEditing
+                        }}
                     />
                 }
                 
@@ -99,4 +115,14 @@ class NavBar extends React.Component{
     }
 }
 
-export default NavBar;
+const mapStateToProps = state => ({
+    isEditing: state.ChannelReducer.isEditingChannel,
+    editingChannel: state.ChannelReducer.editingChannel
+})
+
+export default connect(
+    mapStateToProps,
+    {
+        stopEditing
+    }
+)(NavBar);

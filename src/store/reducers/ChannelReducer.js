@@ -11,6 +11,7 @@ import {
     REMOVE_CHANNEL_SUCCESS,
     REMOVE_CHANNEL_FAILURE,
     START_EDITING_CHANNEL,
+    STOP_EDITING_CHANNEL,
     EDIT_CHANNEL_START,
     EDIT_CHANNEL_SUCCESS,
     EDIT_CHANNEL_FAILURE,
@@ -105,6 +106,12 @@ const ChannelReducer = (state = initialState, action) => {
                 editingChannel: action.payload,
                 isEditingChannel: true,
             }
+        case STOP_EDITING_CHANNEL:
+                return{
+                    ...state,
+                    editingChannel: {},
+                    isEditingChannel: false,
+                }
         case EDIT_CHANNEL_START:
             return{
                 ...state,

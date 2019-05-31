@@ -77,6 +77,7 @@ class Home extends React.Component{
               return (
               <ChannelCard
                 id={c.id}
+                channel={c}
                 name={c.channelName}
                 pictureUrl={c.channelThumbnails.high.url}
                 socials={{
