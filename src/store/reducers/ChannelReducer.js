@@ -118,6 +118,7 @@ const ChannelReducer = (state = initialState, action) => {
                 loading: true,
             }
         case EDIT_CHANNEL_SUCCESS:
+            toast.success("Channel updated successfully")
             return{
                 ...state,
                 editingChannel: {},
@@ -125,6 +126,7 @@ const ChannelReducer = (state = initialState, action) => {
                 loading: false,
             }
         case EDIT_CHANNEL_FAILURE:
+            toast.error("Failed to edit channel")
             return{
                 ...state,
                 editingChannel: {},
