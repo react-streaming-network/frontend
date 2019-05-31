@@ -10,6 +10,10 @@ import {
     REMOVE_CHANNEL_START,
     REMOVE_CHANNEL_SUCCESS,
     REMOVE_CHANNEL_FAILURE,
+    START_EDITING_CHANNEL,
+    EDIT_CHANNEL_START,
+    EDIT_CHANNEL_SUCCESS,
+    EDIT_CHANNEL_FAILURE,
     START_WATCHING_CHANNEL
 } from '../actions/ChannelActions.js';
 
@@ -17,6 +21,8 @@ const initialState = {
     liveChannels: [],
     channels: [],
     activeChannels: [],
+    editingChannel: {},
+    isEditingChannel: false,
     loading: false
 }
 
@@ -92,6 +98,31 @@ const ChannelReducer = (state = initialState, action) => {
                         action.payload
                     ]
                 }
+            }
+        case START_EDITING_CHANNEL:
+            return{
+                ...state,
+                editingChannel: action.payload,
+                isEditingChannel: true,
+            }
+        case EDIT_CHANNEL_START:
+            return{
+                ...state,
+                loading: true,
+            }
+        case EDIT_CHANNEL_SUCCESS:
+            return{
+                ...state,
+                editingChannel: {},
+                isEditingChannel: false,
+                loading: false,
+            }
+        case EDIT_CHANNEL_FAILURE:
+            return{
+                ...state,
+                editingChannel: {},
+                isEditingChannel: false,
+                loading: false,
             }
         default:
             return state;

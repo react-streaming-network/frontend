@@ -70,7 +70,7 @@ export const EditChannel = channel => dispatch => {
         .catch(err => dispatch({ type: EDIT_CHANNEL_FAILURE, payload: err }))
 }
 
-export const StartEdit = channel => ({
+export const StartEditing = channel => ({
     type: START_EDITING_CHANNEL,
     payload: channel
 })
