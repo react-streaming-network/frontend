@@ -1,11 +1,6 @@
 import axios from 'axios';
 
 const URL = process.env.REACT_APP_BACKEND_URL;
-const Auth = {
-    headers: {
-        authorization: localStorage.getItem('token')
-    }
-}
 
 // ----------------------- GET CHAT -----------------------
 

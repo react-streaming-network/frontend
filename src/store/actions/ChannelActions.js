@@ -54,6 +54,27 @@ export const removeChannel = id => dispatch => {
         .catch(err => dispatch({ type: REMOVE_CHANNEL_FAILURE, payload: err }))
 }
 
+// ----------------------- EDIT CHANNEL -----------------------
+
+export const START_EDITING_CHANNEL = "START_EDITING_CHANNEL";
+
+export const EDIT_CHANNEL_START = "EDIT_CHANNEL_START";
+export const EDIT_CHANNEL_SUCCESS = "EDIT_CHANNEL_SUCCESS";
+export const EDIT_CHANNEL_FAILURE = "EDIT_CHANNEL_FAILURE";
+
+export const EditChannel = channel => dispatch => {
+    dispatch({ type: EDIT_CHANNEL_START })
+    axios
+        .put(`${URL}/api/channels/${channel.id}`, channel)
+        .then(res => dispatch({ type: EDIT_CHANNEL_SUCCESS, payload: res.data }))
+        .catch(err => dispatch({ type: EDIT_CHANNEL_FAILURE, payload: err }))
+}
+
+export const StartEdit = channel => ({
+    type: START_EDITING_CHANNEL,
+    payload: channel
+})
+
 // ----------------------- WATCH CHANNEL -----------------------
 
 export const START_WATCHING_CHANNEL = "START_WATCHING_CHANNEL";

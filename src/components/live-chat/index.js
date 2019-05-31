@@ -19,7 +19,7 @@ const Message = ({ username, message, channelUrl, pictureUrl }) => (
 class LiveChat extends React.Component{
     componentDidMount(){
         this.props.getChat(this.props.chatId);
-        this.startGettingChat();
+        // this.startGettingChat();
     }
 
     startGettingChat = () => {
