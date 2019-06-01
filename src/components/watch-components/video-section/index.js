@@ -1,7 +1,7 @@
 import React from 'react';
-import NumberFormat from 'react-number-format';
 
-import { VideoSectionContainer, SubNav } from './videoSectionStyles.js';
+import { VideoSectionContainer } from './videoSectionStyles.js';
+import SubNav from './sub-nav';
 
 export const VideoSection = ({ 
     liveChannels, 
@@ -10,37 +10,12 @@ export const VideoSection = ({
     activeChannels 
 }) => (
     <VideoSectionContainer count={activeChannels.length}>
-        <SubNav className="subnav-hover">
-            <button className="back-button" onClick={() => {
-                history.push('/')
-            }}>
-                <i className="fas fa-angle-left"/>
-                Back
-            </button>
-            {liveChannels.map(c => {
-                return (
-                    <button 
-                        className={activeChannels.includes(c.channelName) ? 'channel-button active' : 'channel-button'} 
-                        onClick={() => {
-                            toggleChannel(c.channelName);
-                        }}
-                    >
-                        <img src={c.channelThumbnails.high.url} alt=""/>
-                        <div>
-                            <h3>{c.channelName}</h3>
-                            <h4>
-                                <div/>
-                                <NumberFormat 
-                                    value={c.status.liveStatus.concurrentViewers} 
-                                    displayType={'text'} 
-                                    thousandSeparator={true}
-                                />
-                            </h4>
-                        </div>
-                    </button>
-                )
-            })}
-        </SubNav>
+        <SubNav
+            history={history}
+            toggleChannel={toggleChannel}
+            liveChannels={liveChannels}
+            activeChannels={activeChannels}
+        />
         <div className="videos">
             {liveChannels.map(c => {
                 if(activeChannels.includes(c.channelName)){
@@ -53,6 +28,7 @@ export const VideoSection = ({
                         />
                     )
                 }
+                return null
             })}
         </div>
     </VideoSectionContainer>

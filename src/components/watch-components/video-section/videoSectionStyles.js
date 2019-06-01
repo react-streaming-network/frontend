@@ -31,7 +31,7 @@ export const VideoSectionContainer = styled.div`
     }
 `;
 
-export const SubNav = styled.div`
+export const SubNavContainer = styled.div`
     position: fixed;
     display: flex;
     top: -45px;
