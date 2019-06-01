@@ -6,7 +6,17 @@ import { editChannel } from '../../../store/actions/ChannelActions.js';
 
 class EditChannelForm extends React.Component{
     state={
-        formData: this.props.editingChannel
+        formData: {
+            id: this.props.editingChannel.id,
+            channelName: this.props.editingChannel.channelName,
+            youtube: this.props.editingChannel.youtube,
+            discord: this.props.editingChannel.discord,
+            twitter: this.props.editingChannel.twitter,
+            donate: this.props.editingChannel.donate,
+            reddit: this.props.editingChannel.reddit,
+            instagram: this.props.editingChannel.instagram,
+            verified: this.props.editingChannel.verified
+        }
     }
 
     handleChange = e => {
