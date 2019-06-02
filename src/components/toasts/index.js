@@ -3,7 +3,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Toasts = () => (
-    <ToastContainer pauseOnHover={false}/>
+    <ToastContainer/>
 )
 
 export default Toasts;
