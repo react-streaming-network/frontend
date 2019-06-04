@@ -27,7 +27,7 @@ export const authReducer = (state = initialState, action) => {
                 loading: false
             }
         case REGISTER_USER_FAILURE:
-            toast.error("Failed To Register User");                     
+            toast.error("Failed To Register");                     
             return{
                 ...state,
                 loading: false
