@@ -80,7 +80,7 @@ export const BottomSection = styled.div`
             display: flex;
             align-items: center;
             background-color: ${transparentPrimary};
-            padding: 6.5px;
+            padding: 6px;
             border: unset;
             color: #ffffff;
             text-decoration: none;
